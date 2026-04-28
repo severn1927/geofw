@@ -1,0 +1,36 @@
+---
+const team = [
+  { name: '陈志远', role: '创始人 & CEO', avatar: 'C' },
+  { name: '林雨晴', role: '运营总监', avatar: 'L' },
+  { name: '王浩然', role: '技术负责人', avatar: 'W' },
+  { name: '陈思琪', role: '项目经理', avatar: 'S' },
+  { name: '张明辉', role: 'SEO专家', avatar: 'Z' },
+  { name: '刘佳怡', role: '内容策略师', avatar: 'J' },
+];
+---
+
+<section id="team" class="py-20 md:py-28 bg-gray-50">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 rounded-full text-purple-600 text-sm font-medium mb-4">
+        <span>Our Team</span>
+      </div>
+      <h2 class="section-title">我们的<span class="gradient-text">专家团队</span></h2>
+      <p class="section-subtitle">强大的专家团队和优秀的服务保障，为您的品牌保驾护航</p>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      {team.map(member => (
+        <div class="text-center group">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-2xl gradient-bg flex items-center justify-center text-white text-2xl font-bold group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+            {member.avatar}
+          </div>
+          <h3 class="font-semibold text-gray-900 text-sm">{member.name}</h3>
+          <p class="text-xs text-gray-400 mt-1">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

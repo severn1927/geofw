@@ -1,0 +1,77 @@
+---
+const services = [
+  {
+    title: 'AI平台优化',
+    description: '专业优化DeepSeek、文心一言、豆包、通义、元宝五大AI平台，提升品牌可见性，获取精准流量。',
+    icon: 'brain',
+  },
+  {
+    title: '规划热搜词条',
+    description: '针对您所在的行业专门规划行业热门词、核心词和长尾词，精准触达客户获取流量。',
+    icon: 'search',
+  },
+  {
+    title: '多平台布局',
+    description: '针对您所在的行业，选出热搜词进行全网多平台铺设，做到客户不管在哪个平台搜索都能搜到我们。',
+    icon: 'layout',
+  },
+  {
+    title: 'AI引流至官网',
+    description: '从用户在AI搜索中出现我们的官网，从而精准引流到官网，获得大量曝光。',
+    icon: 'link',
+  },
+  {
+    title: '月度报告分析',
+    description: '分析AI流量、排名、转化率等核心数据，评估GEO优化策略成效并制定下月计划。',
+    icon: 'chart',
+  },
+  {
+    title: '官网搭建/SEO优化',
+    description: '从官网搭建到SEO优化一条龙服务，目前SEO优化还是主流，从各大搜索引擎来的流量也不容忽视。',
+    icon: 'web',
+  },
+];
+
+const iconMap: Record<string, string> = {
+  brain: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+  search: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  layout: 'M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z',
+  link: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+  chart: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+  web: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+};
+---
+
+<section id="fuwu" class="py-20 md:py-28 bg-white">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 rounded-full text-purple-600 text-sm font-medium mb-4">
+        <span>Our Services</span>
+      </div>
+      <h2 class="section-title">我们的<span class="gradient-text">服务项目</span></h2>
+      <p class="section-subtitle">针对不同需求提供灵活高效的优化方案，确保您的品牌在AI搜索结果中获得最佳曝光</p>
+    </div>
+
+    <!-- Service Cards Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service, index) => (
+        <div class="card group hover:shadow-xl cursor-pointer">
+          <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconMap[service.icon]} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">{service.title}</h3>
+          <p class="text-gray-500 leading-relaxed text-sm">{service.description}</p>
+          <div class="mt-5 flex items-center gap-1 text-purple-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            了解详情
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+---
+
+<Layout
+  title="关于我们 - 友擎GEO"
+  description="了解友擎GEO团队，我们专注AI搜索引擎优化(GEO)，帮助企业提升在DeepSeek、文心一言、豆包等AI平台的可见性与影响力。"
+  keywords="友擎GEO,关于我们,GEO团队,AI优化团队"
+>
+  <Header slot="header" />
+
+  <!-- Page Header -->
+  <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    <div class="container-custom relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">关于我们</h1>
+      <p class="text-lg text-white/70 max-w-2xl mx-auto">了解友擎GEO，了解AI搜索引擎优化的未来</p>
+      <nav class="mt-6 flex items-center justify-center gap-2 text-sm text-white/50" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white/80 transition-colors">首页</a>
+        <span>/</span>
+        <span class="text-white/80">关于我们</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Company Story -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 rounded-full text-purple-600 text-sm font-medium mb-4">
+            Our Story
+          </div>
+          <h2 class="section-title mb-6">我们的<span class="gradient-text">故事</span></h2>
+          <div class="prose prose-gray max-w-none">
+            <p class="text-gray-600 leading-relaxed mb-4">
+              友擎GEO成立于2024年，是国内最早专注于AI搜索引擎优化(GEO)的服务商之一。我们敏锐地洞察到AI搜索正在改变人们获取信息的方式，传统SEO已无法满足企业在AI时代的品牌曝光需求。
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              我们的团队由资深SEO专家、AI算法工程师和内容策略师组成，拥有丰富的搜索引擎优化经验和深厚的AI技术积累。成立以来，我们已经服务了超过500家企业客户，覆盖30多个行业。
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              我们相信，在AI搜索时代，每个品牌都应该有公平的机会被看见。友擎GEO的使命就是帮助企业在这个新时代中脱颖而出。
+            </p>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
+          <div class="text-center">
+            <div class="w-32 h-32 mx-auto mb-6 rounded-2xl gradient-bg flex items-center justify-center">
+              <span class="text-4xl font-black text-white">GEO</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">友擎GEO</h3>
+            <p class="text-gray-500">AI搜索引擎优化引领者</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 md:py-28 bg-gray-50">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="section-title">我们的<span class="gradient-text">核心价值观</span></h2>
+        <p class="section-subtitle">以客户成功为驱动，以技术创新为根基</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            title: '客户至上',
+            desc: '以客户的商业目标为导向，提供切实有效的GEO优化方案，帮助客户在AI时代获得竞争优势。',
+            icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+          },
+          {
+            title: '技术驱动',
+            desc: '紧跟AI技术发展，持续研究AI搜索引擎算法变化，以技术实力保障客户优化效果的持续稳定。',
+            icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+          },
+          {
+            title: '持续创新',
+            desc: '不断探索GEO优化的新方法、新策略，为客户提供行业领先的AI搜索优化服务，引领行业发展。',
+            icon: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+          },
+        ].map(value => (
+          <div class="card p-8 text-center">
+            <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={value.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+            <p class="text-gray-500 leading-relaxed text-sm">{value.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="section-title">发展<span class="gradient-text">历程</span></h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        {[
+          { year: '2024 Q1', title: '公司成立', desc: '友擎GEO正式成立，专注AI搜索引擎优化领域研究' },
+          { year: '2024 Q2', title: '首个客户签约', desc: '成功签约首批企业客户，验证GEO优化服务模式' },
+          { year: '2024 Q4', title: '服务升级', desc: '全面升级服务能力，覆盖DeepSeek、文心一言、豆包等主流AI平台' },
+          { year: '2025 Q2', title: '500+客户', desc: '累计服务客户突破500家，覆盖30+行业' },
+          { year: '2026', title: '行业领先', desc: '成为国内GEO优化领域的领军服务商' },
+        ].map((item, index) => (
+          <div class="flex gap-6 mb-10 last:mb-0">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white text-xs font-bold shrink-0">
+                {item.year}
+              </div>
+              {index < 4 && <div class="w-0.5 flex-1 bg-gradient-to-b from-purple-500 to-blue-500 mt-2"></div>}
+            </div>
+            <div class="pb-10">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
+              <p class="text-gray-500 text-sm">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+  <Footer slot="footer" />
+</Layout>

@@ -1,0 +1,70 @@
+---
+const testimonials = [
+  {
+    name: '张伟',
+    role: '市场总监',
+    company: '某科技公司',
+    content: '友擎GEO的专业度超出预期，他们帮助我们品牌在DeepSeek等AI平台上的提及率在3个月内从8%提升到了42%，很多客户都是通过AI搜索找到我们的。',
+    rating: 5,
+  },
+  {
+    name: '李雪梅',
+    role: '公司负责人',
+    company: '某建材企业',
+    content: '之前就了解到GEO优化的重要性，与友擎GEO合作1年来，效果出乎意料，很多大单子都是从AI搜索来的，后期会继续合作。',
+    rating: 5,
+  },
+  {
+    name: '王志强',
+    role: '项目经理',
+    company: '某教育机构',
+    content: '使用友擎GEO的解决方案后，我们品牌在AI平台的提及率3个月内从15%提升至52%，用户转化率增长了3倍，效果非常显著！',
+    rating: 5,
+  },
+];
+---
+
+<section id="pingjia" class="py-20 md:py-28 bg-white">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 rounded-full text-purple-600 text-sm font-medium mb-4">
+        <span>Customer Reviews</span>
+      </div>
+      <h2 class="section-title">客户<span class="gradient-text">评价</span></h2>
+      <p class="section-subtitle">客户的真实评价才是最好的口碑宣传</p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map((t, index) => (
+        <div class="card p-7 flex flex-col">
+          <!-- Stars -->
+          <div class="flex gap-1 mb-4">
+            {Array.from({ length: t.rating }).map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          
+          <!-- Quote -->
+          <blockquote class="text-gray-600 leading-relaxed mb-6 flex-1 text-sm">
+            "{t.content}"
+          </blockquote>
+          
+          <!-- Author -->
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <div class="w-11 h-11 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-sm">
+              {t.name[0]}
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900 text-sm">{t.name}</div>
+              <div class="text-xs text-gray-400">{t.role} · {t.company}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

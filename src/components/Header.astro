@@ -1,0 +1,175 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const currentPath = Astro.props.currentPath || Astro.url.pathname;
+const navLinks = [
+  { href: '/', label: '首页' },
+  { href: '/#about', label: '简介' },
+  { href: '/services', label: '服务' },
+  { href: '/#advantages', label: '优势' },
+  { href: '/blog', label: '新闻动态' },
+  { href: '/#team', label: '团队' },
+  { href: '/contact', label: '联系我们' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  // Anchor links (/#xxx) are never highlighted as active
+  if (href.startsWith('/#')) return false;
+  return currentPath.startsWith(href);
+};
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="container-custom flex items-center justify-between h-16 md:h-20" aria-label="主导航">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2.5 group" aria-label="友擎GEO - 返回首页">
+      <img src="/logo.png" alt="友擎GEO Logo" class="w-9 h-9 md:w-10 md:h-10" width="40" height="40" loading="eager" />
+      <div class="flex flex-col">
+        <span class="text-lg md:text-xl font-bold leading-tight text-white group-hover:text-purple-200 transition-colors">
+          友擎<span class="gradient-text" style="-webkit-text-fill-color: unset; background: linear-gradient(90deg, #c084fc, #60a5fa); -webkit-background-clip: text;">GEO</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-1">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200',
+            isActive(link.href)
+              ? 'text-white bg-white/15'
+              : 'text-white/80 hover:text-white hover:bg-white/10',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="hidden lg:block">
+      <a href="/contact" class="btn-primary text-sm !py-2 !px-5">
+        免费咨询
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+      aria-label="打开菜单"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg class="w-6 h-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden hidden gradient-bg border-t border-white/10">
+    <div class="container-custom py-4 space-y-1">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
+            isActive(link.href)
+              ? 'text-white bg-white/15'
+              : 'text-white/80 hover:text-white hover:bg-white/10',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-3 px-4">
+        <a href="/contact" class="btn-primary w-full text-center text-sm">
+          免费咨询
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+  let lastScroll = 0;
+
+  function updateHeader() {
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 50) {
+      header?.classList.add('header-scrolled');
+      header?.classList.remove('gradient-bg');
+    } else {
+      header?.classList.remove('header-scrolled');
+      header?.classList.add('gradient-bg');
+    }
+    
+    lastScroll = scrollY;
+  }
+
+  // Set initial state
+  if (window.scrollY <= 50) {
+    header?.classList.add('gradient-bg');
+  }
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    mobileMenuBtn?.querySelector('.menu-icon')?.classList.toggle('hidden');
+    mobileMenuBtn?.querySelector('.close-icon')?.classList.toggle('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuBtn?.querySelector('.menu-icon')?.classList.remove('hidden');
+      mobileMenuBtn?.querySelector('.close-icon')?.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  /* Scrolled header styles */
+  #header.header-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+  }
+  #header.header-scrolled a:not(.btn-primary) {
+    color: #374151 !important;
+  }
+  #header.header-scrolled a:not(.btn-primary):hover {
+    color: #8A49E4 !important;
+  }
+  #header.header-scrolled .group span {
+    color: #111827 !important;
+  }
+  #header.header-scrolled #mobile-menu-btn {
+    color: #374151 !important;
+  }
+  #header.header-scrolled a.active,
+  #header.header-scrolled [class*="bg-white/15"] {
+    background-color: rgba(138, 73, 228, 0.1) !important;
+    color: #8A49E4 !important;
+  }
+</style>

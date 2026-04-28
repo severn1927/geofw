@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Advantages from '../components/Advantages.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Team from '../components/Team.astro';
+import BlogPreview from '../components/BlogPreview.astro';
+import Packages from '../components/Packages.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+---
+
+<Layout
+  title="AI搜索引擎优化(GEO)服务商 - 友擎GEO"
+  description="友擎GEO专注AI搜索引擎优化，帮助企业提升在DeepSeek、文心一言、豆包、通义、元宝等AI平台的可见性与影响力，实现精准获客。"
+  keywords="GEO优化,AI搜索优化,DeepSeek优化,文心一言优化,豆包优化,品牌推广,搜索引擎优化"
+>
+  <Header slot="header" />
+  
+  <Hero />
+  <About />
+  <Services />
+  <Advantages />
+  <Testimonials />
+  <Team />
+  <BlogPreview />
+  <Packages />
+  <ContactCTA />
+  
+  <Footer slot="footer" />
+</Layout>

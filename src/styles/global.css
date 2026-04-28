@@ -1,0 +1,293 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* ========== Tailwind Layers ========== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== CSS Custom Properties ========== */
+:root {
+  --gradient-from: #8A49E4;
+  --gradient-to: #2563EB;
+  --brand-green: #22C55E;
+  --bg-light: #F8FAFC;
+  --bg-dark: #2E1065;
+  --text-heading: #111827;
+  --text-body: #6B7280;
+  --text-footer: #F3F4F6;
+}
+
+/* ========== Base Styles ========== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  color: var(--text-heading);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #8A49E4;
+  color: #ffffff;
+}
+
+/* ========== Component Styles ========== */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  border-image: linear-gradient(135deg, var(--gradient-from), var(--gradient-to)) 1;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 2px solid white;
+  color: white;
+  transition: all 0.3s;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: #111827;
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s;
+  background-color: #111827;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-dark:hover {
+  background-color: #1f2937;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-dark:active {
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.wave-divider {
+  position: relative;
+}
+
+.wave-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23F8FAFC' d='M0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,40 L1440,80 L0,80 Z'/%3E%3C/svg%3E") no-repeat center bottom;
+  background-size: cover;
+}
+
+/* ========== Scrollbar ========== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--gradient-from), var(--gradient-to));
+  border-radius: 4px;
+}
+
+/* ========== Animation Delays ========== */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+
+/* ========== Responsive Typography ========== */
+.text-hero-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 900;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .text-hero-title {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-hero-title {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+.text-hero-sub {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+  .text-hero-sub {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-hero-sub {
+    font-size: 3rem;
+  }
+}
+
+/* ========== About Section Background ========== */
+.bg-section-light {
+  background-color: var(--bg-light);
+}
+
+.bg-section-dark {
+  background-color: var(--bg-dark);
+}
+
+/* ========== Footer ========== */
+.text-footer-heading {
+  color: var(--text-footer);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.text-footer-link {
+  color: rgba(243, 244, 246, 0.7);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.text-footer-link:hover {
+  color: white;
+}
+
+/* ========== Counter Animation ========== */
+@keyframes counter {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}

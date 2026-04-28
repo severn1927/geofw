@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="联系我们 - 友擎GEO"
+  description="联系友擎GEO，获取免费AI搜索引擎优化(GEO)方案。电话：400-888-8888，邮箱：contact@geofw.cn。"
+  keywords="联系友擎GEO,GEO咨询,免费GEO方案,AI优化咨询"
+>
+  <Header slot="header" />
+
+  <!-- Page Header -->
+  <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    <div class="container-custom relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">联系我们</h1>
+      <p class="text-lg text-white/70 max-w-2xl mx-auto">获取免费GEO优化方案，开启AI时代品牌营销新征程</p>
+      <nav class="mt-6 flex items-center justify-center gap-2 text-sm text-white/50" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white/80 transition-colors">首页</a>
+        <span>/</span>
+        <span class="text-white/80">联系我们</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 md:py-28 bg-gray-50">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">免费获取方案</h2>
+          <p class="text-gray-500 text-sm mb-8">填写以下信息，我们将在24小时内与您联系</p>
+          
+          <form id="contact-form" class="space-y-5" name="contact" method="POST">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">您的姓名 *</label>
+                <input type="text" id="name" name="name" required placeholder="请输入姓名"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none" />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">联系电话 *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="请输入手机号"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none" />
+              </div>
+            </div>
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 mb-1.5">公司名称</label>
+              <input type="text" id="company" name="company" placeholder="请输入公司名称"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none" />
+            </div>
+            <div>
+              <label for="service" class="block text-sm font-medium text-gray-700 mb-1.5">感兴趣的服务</label>
+              <select id="service" name="service"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none bg-white">
+                <option value="">请选择服务类型</option>
+                <option value="ai-platform">AI平台优化</option>
+                <option value="keyword-planning">规划热搜词条</option>
+                <option value="multi-platform">多平台布局</option>
+                <option value="website-seo">官网搭建/SEO优化</option>
+                <option value="full-package">全套GEO优化方案</option>
+                <option value="other">其他需求</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">需求描述</label>
+              <textarea id="message" name="message" rows="4" placeholder="请简要描述您的需求..."
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full !py-3.5 text-base">
+              提交咨询
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </button>
+          </form>
+          
+          <!-- Form success message -->
+          <div id="form-success" class="hidden text-center py-12">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+              <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">提交成功</h3>
+            <p class="text-gray-500">感谢您的咨询，我们将在24小时内与您联系！</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">联系方式</h2>
+            <div class="space-y-5">
+              <div class="flex gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">咨询热线</p>
+                  <a href="tel:400-888-8888" class="text-lg font-bold text-gray-900 hover:text-purple-600 transition-colors">400-888-8888</a>
+                </div>
+              </div>
+              
+              <div class="flex gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">电子邮箱</p>
+                  <a href="mailto:contact@geofw.cn" class="text-lg font-bold text-gray-900 hover:text-purple-600 transition-colors">contact@geofw.cn</a>
+                </div>
+              </div>
+              
+              <div class="flex gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">服务时间</p>
+                  <p class="text-lg font-bold text-gray-900">周一至周六 9:00-18:00</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">公司地址</p>
+                  <p class="text-lg font-bold text-gray-900">中国</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">常见问题</h3>
+            <div class="space-y-4">
+              {[
+                { q: 'GEO优化多久能看到效果？', a: '通常1周内完成部署，3天内可以初步看到品牌提及率的变化，1-3个月可以显著提升品牌在AI搜索中的可见性。' },
+                { q: 'GEO优化需要持续多久？', a: '建议至少持续3-6个月以获得稳定效果。AI算法会持续更新，需要持续优化才能保持效果。' },
+                { q: 'GEO优化和SEO有什么区别？', a: 'SEO主要优化传统搜索引擎排名，GEO优化针对AI生成搜索结果中的品牌曝光。两者相辅相成，我们建议同时进行。' },
+              ].map((faq, index) => (
+                <details class="group border border-gray-100 rounded-lg">
+                  <summary class="flex items-center justify-between cursor-pointer px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded-lg">
+                    {faq.q}
+                    <svg class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4 text-sm text-gray-500 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMsg = document.getElementById('form-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Simulate form submission
+    form.classList.add('hidden');
+    successMsg?.classList.remove('hidden');
+  });
+</script>

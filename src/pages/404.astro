@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="页面未找到 - 友擎GEO" description="您访问的页面不存在">
+  <Header slot="header" />
+  
+  <section class="min-h-[70vh] flex items-center justify-center bg-gray-50">
+    <div class="text-center px-4">
+      <div class="text-8xl font-black gradient-text mb-4">404</div>
+      <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">页面未找到</h1>
+      <p class="text-gray-500 mb-8 max-w-md mx-auto">
+        抱歉，您访问的页面不存在或已被移除。请检查URL是否正确，或返回首页浏览。
+      </p>
+      <a href="/" class="btn-primary">
+        返回首页
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

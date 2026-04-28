@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const services = [
+  {
+    id: 'ai-platform',
+    title: 'AI平台优化',
+    subtitle: '五大AI平台全覆盖',
+    desc: '专业优化DeepSeek、文心一言、豆包、通义、元宝五大AI平台，提升品牌可见性，获取精准流量。',
+    details: [
+      'AI回答监控与品牌提及率追踪',
+      '品牌信息在AI平台的准确度优化',
+      'AI搜索结果排名提升策略',
+      '品牌正面信息强化',
+      '竞品AI表现分析与对策',
+    ],
+    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+  },
+  {
+    id: 'keyword-planning',
+    title: '规划热搜词条',
+    subtitle: '精准关键词策略',
+    desc: '针对您所在的行业专门规划行业热门词、核心词和长尾词，精准触达客户获取流量。',
+    details: [
+      '行业关键词全面分析',
+      '热搜词与趋势词挖掘',
+      '用户搜索意图分析',
+      '关键词竞争度评估',
+      '长尾关键词矩阵建设',
+    ],
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  },
+  {
+    id: 'multi-platform',
+    title: '多平台布局',
+    subtitle: '全网品牌覆盖',
+    desc: '针对您所在的行业，选出热搜词进行全网多平台铺设，做到客户不管在哪个平台搜索都能搜到我们。',
+    details: [
+      '百度、搜狗等传统搜索引擎优化',
+      '知乎、小红书等内容平台布局',
+      '短视频平台（抖音、快手）内容铺设',
+      '行业垂直平台入驻',
+      '自媒体矩阵建设',
+    ],
+    icon: 'M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z',
+  },
+  {
+    id: 'ai-traffic',
+    title: 'AI引流至官网',
+    subtitle: '精准流量转化',
+    desc: '从用户在AI搜索中出现我们的官网，从而精准引流到官网，获得大量曝光。',
+    details: [
+      '官网内容优化与AI适配',
+      '落地页设计与优化',
+      '转化漏斗分析与优化',
+      '用户行为追踪与分析',
+      'A/B测试与持续迭代',
+    ],
+    icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+  },
+  {
+    id: 'monthly-report',
+    title: '月度报告分析',
+    subtitle: '数据驱动决策',
+    desc: '分析AI流量、排名、转化率等核心数据，评估GEO优化策略成效并制定下月计划。',
+    details: [
+      '品牌AI提及率变化追踪',
+      'AI搜索排名监控',
+      '流量来源与转化分析',
+      '竞品表现对比报告',
+      '下月优化策略建议',
+    ],
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+  },
+  {
+    id: 'website-seo',
+    title: '官网搭建/SEO优化',
+    subtitle: '一站式建站与优化',
+    desc: '从官网搭建到SEO优化一条龙服务，目前SEO优化还是主流，从各大搜索引擎来的流量也不容忽视。',
+    details: [
+      '响应式官网设计与开发',
+      '技术SEO（速度、结构、移动端）',
+      '内容SEO（关键词、原创内容）',
+      '外链建设与品牌权威性提升',
+      '本地SEO优化',
+    ],
+    icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+  },
+];
+---
+
+<Layout
+  title="服务项目 - 友擎GEO"
+  description="友擎GEO提供AI平台优化、规划热搜词条、多平台布局、AI引流至官网、月度报告分析、官网搭建/SEO优化等全方位GEO服务。"
+  keywords="GEO服务,AI平台优化,热搜词条规划,多平台布局,SEO优化,官网搭建"
+>
+  <Header slot="header" />
+
+  <!-- Page Header -->
+  <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    <div class="container-custom relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">服务项目</h1>
+      <p class="text-lg text-white/70 max-w-2xl mx-auto">全方位的AI搜索引擎优化服务，助力企业品牌在AI时代获得竞争优势</p>
+      <nav class="mt-6 flex items-center justify-center gap-2 text-sm text-white/50" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white/80 transition-colors">首页</a>
+        <span>/</span>
+        <span class="text-white/80">服务项目</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Service Detail Sections -->
+  {services.map((service, index) => (
+    <section id={service.id} class:list={['py-20 md:py-24', index % 2 === 0 ? 'bg-white' : 'bg-gray-50']}>
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-16 items-center" class:list={[index % 2 !== 0 ? 'lg:flex-row-reverse' : '']}>
+          <div class:list={[index % 2 !== 0 ? 'lg:order-2' : '']}>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-purple-500 font-medium">{service.subtitle}</p>
+                <h2 class="text-2xl font-bold text-gray-900">{service.title}</h2>
+              </div>
+            </div>
+            <p class="text-gray-600 leading-relaxed mb-8">{service.desc}</p>
+            <ul class="space-y-3 mb-8">
+              {service.details.map(detail => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-purple-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-gray-600 text-sm">{detail}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class="btn-primary">
+              咨询此服务
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div class:list={[index % 2 !== 0 ? 'lg:order-1' : '']}>
+            <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 flex items-center justify-center min-h-[300px]">
+              <div class="w-32 h-32 rounded-2xl gradient-bg flex items-center justify-center">
+                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <ContactCTA />
+  <Footer slot="footer" />
+</Layout>
