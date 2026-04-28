@@ -36,13 +36,18 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {sortedPosts.map(post => (
           <article class="card overflow-hidden group flex flex-col">
-            <!-- Image placeholder -->
-            <div class="h-48 gradient-bg relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-white/20 text-6xl font-black">GEO</span>
-              </div>
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
-            </div>
+            <!-- Cover Image -->
+            <a href={`/blog/${post.slug}`} class="block h-48 relative overflow-hidden">
+              {post.data.image && (
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              )}
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+            </a>
             <!-- Content -->
             <div class="p-6 flex flex-col flex-1">
               <!-- Tags -->

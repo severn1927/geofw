@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const latestPosts = allPosts
@@ -22,13 +23,18 @@ const latestPosts = allPosts
     <div class="grid md:grid-cols-3 gap-8">
       {latestPosts.map((post, index) => (
         <article class="card overflow-hidden group flex flex-col animate-fade-in-up" style={`animation-delay: ${index * 100}ms;`}>
-          <!-- Image placeholder -->
-          <div class="h-48 gradient-bg relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <span class="text-white/20 text-6xl font-black select-none">GEO</span>
-            </div>
+          <!-- Cover Image -->
+          <a href={`/blog/${post.slug}`} class="block h-48 relative overflow-hidden">
+            {post.data.image && (
+              <img
+                src={post.data.image}
+                alt={post.data.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            )}
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-          </div>
+          </a>
           <!-- Content -->
           <div class="p-6 flex flex-col flex-1">
             <!-- Tags -->

@@ -4,7 +4,7 @@ description: "深入了解GEO（Generative Engine Optimization）优化的概念
 pubDate: 2026-04-15
 author: "友擎GEO团队"
 tags: ["GEO优化", "AI搜索", "品牌营销"]
-image: "/images/blog-geo-intro.jpg"
+image: "/images/blog/blog-geo-intro.jpg"
 ---
 
 ## 什么是GEO优化？

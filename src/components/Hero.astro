@@ -94,9 +94,7 @@
                 </div>
               </div>
               <div class="flex items-start gap-2">
-                <div class="w-6 h-6 rounded-full bg-blue-400/30 flex items-center justify-center shrink-0 mt-0.5">
-                  <span class="text-xs text-white font-bold">DS</span>
-                </div>
+                <img src="/images/platforms/deepseek.png" alt="DeepSeek" class="w-6 h-6 rounded-full shrink-0 mt-0.5" width="24" height="24" />
                 <div class="flex-1">
                   <div class="bg-white/10 rounded-lg p-3">
                     <p class="text-sm text-white/60 leading-relaxed"><span class="text-yellow-300 font-medium">友擎GEO</span> 在品牌可见性提升方面表现优秀...</p>
@@ -125,16 +123,14 @@
       <p class="text-center text-white/50 text-sm mb-8">覆盖主流AI搜索平台</p>
       <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
         {[
-          { name: 'DeepSeek', icon: 'DS' },
-          { name: '文心一言', icon: 'WX' },
-          { name: '豆包', icon: 'DB' },
-          { name: '通义千问', icon: 'TY' },
-          { name: '腾讯元宝', icon: 'YB' },
+          { name: 'DeepSeek', img: '/images/platforms/deepseek.png' },
+          { name: '文心一言', img: '/images/platforms/wenxin.png' },
+          { name: '豆包', img: '/images/platforms/doubao.png' },
+          { name: '通义千问', img: '/images/platforms/tongyi.png' },
+          { name: '腾讯元宝', img: '/images/platforms/yuanbao.png' },
         ].map(platform => (
           <div class="flex items-center gap-2 text-white/60 hover:text-white/90 transition-colors cursor-default">
-            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold">
-              {platform.icon}
-            </div>
+            <img src={platform.img} alt={platform.name} class="w-10 h-10 rounded-lg object-contain" width="40" height="40" loading="lazy" />
             <span class="text-sm font-medium hidden sm:inline">{platform.name}</span>
           </div>
         ))}
