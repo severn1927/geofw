@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: severn1927/geofw
+  repo: era007/geofw
   branch: main
   base_url: https://www.geofw.cn
   auth_endpoint: /api/auth
