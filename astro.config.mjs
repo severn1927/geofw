@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://geofw.cn',
+  site: 'https://www.geofw.cn',
   integrations: [
     mdx(),
     sitemap({
