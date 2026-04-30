@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
+Disallow: /cms
+
 Sitemap: https://geofw.cn/sitemap-index.xml
