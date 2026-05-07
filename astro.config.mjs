@@ -3,8 +3,11 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: 'https://www.geofw.cn',
+
   integrations: [
     mdx(),
     sitemap({
@@ -15,9 +18,12 @@ export default defineConfig({
     }),
     tailwind(),
   ],
+
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
     },
   },
+
+  adapter: cloudflare()
 });
