@@ -2,8 +2,7 @@ backend:
   name: github
   repo: severn1927/geofw
   branch: master
-  base_url: /
-  auth_endpoint: /api/auth
+  base_url: http://geofw.css123.com
 
 media_folder: public/images/blog
 public_folder: /images/blog
